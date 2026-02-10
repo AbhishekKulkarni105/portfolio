@@ -1,0 +1,25 @@
+name: Deploy Portfolio to Hostinger
+
+on:
+  push:
+    branches:
+      - main # Triggers on push to main branch
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # IF deploying to the root of the domain:
+          server-dir: ./public_html/portfolio/
+          # IF deploying to a subfolder (e.g. yourdomain.com/portfolio):
+          # server-dir: ./public_html/portfolio/
