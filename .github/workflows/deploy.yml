@@ -20,6 +20,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # IF deploying to the root of the domain:
-          server-dir: ./public_html/portfolio/
+          server-dir: ./public_html/abhishekkulkarni
           # IF deploying to a subfolder (e.g. yourdomain.com/portfolio):
           # server-dir: ./public_html/portfolio/
