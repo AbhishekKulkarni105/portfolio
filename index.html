@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abhishek Kulkarni - Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+      :root {
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --bg-color: #ffffff;
+        --surface-color: #f8f9fa;
+        --text-color: #212529;
+        --text-light: #495057;
+        --border-color: #dee2e6;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --whatsapp-color: #25d366;
+      }
+
+      /* Global Resets */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px;
+        overflow: hidden;
+      }
+
+      /* Section Styling */
+      section {
+        padding: 4rem 0;
+      }
+      section:nth-of-type(even) {
+        background-color: var(--surface-color);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        font-weight: 600;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary-color);
+        margin: 0.5rem auto 0;
+        border-radius: 2px;
+      }
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+      p {
+        margin-bottom: 1rem;
+        color: var(--text-light);
+      }
+
+      /* Hero Section */
+      #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+      }
+      #home .hero-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--primary-color);
+        box-shadow: var(--shadow);
+      }
+      #home .hero-content {
+        max-width: 800px;
+      }
+      #home h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      #home .subtitle {
+        font-size: 1.75rem;
+        font-weight: 300;
+        color: var(--text-light);
+        margin-bottom: 2rem;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--primary-color);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition:
+          background 0.3s ease,
+          transform 0.3s ease;
+      }
+      .cta-button:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      .secondary-button {
+        display: inline-block;
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .secondary-button:hover {
+        background: var(--primary-color);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* WhatsApp Floating Button */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: var(--whatsapp-color);
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #1ebe57;
+        color: white;
+      }
+
+      /* About Section */
+      #about .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      #about .about-text {
+        text-align: center;
+      }
+      #about .about-text p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Skills Section */
+      #skills .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      #skills .skill-category {
+        background: var(--bg-color);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+      #skills .skill-category h3 {
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+      }
+      #skills .skill-category ul {
+        list-style: none;
+        margin-top: 1rem;
+      }
+      #skills .skill-category li {
+        background: var(--surface-color);
+        color: var(--text-light);
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      /* Experience Section */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--primary-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: var(--bg-color);
+        border: 4px solid var(--primary-color);
+        top: 25px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline-item.left {
+        left: 0;
+      }
+      .timeline-item.right {
+        left: 50%;
+      }
+      .timeline-item.left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 28px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid var(--border-color);
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent var(--border-color);
+      }
+      .timeline-item.right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 28px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid var(--border-color);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--border-color) transparent transparent;
+      }
+      .timeline-item.right::after {
+        left: -10px;
+      }
+      .timeline-content {
+        padding: 20px 30px;
+        background-color: var(--bg-color);
+        position: relative;
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+      .timeline-content h3 {
+        margin-bottom: 0.25rem;
+      }
+      .timeline-content .date {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .timeline-content .item-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      /* Projects Section */
+      #projects .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+      .project-card {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      .project-card .card-content {
+        padding: 1.5rem;
+        flex-grow: 1;
+      }
+      .project-card h3 {
+        margin-bottom: 0.75rem;
+      }
+      .project-card .project-tags {
+        padding: 0 1.5rem 1.5rem;
+      }
+      .project-card .tag {
+        display: inline-block;
+        background: var(--primary-color);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Contact Section */
+      #contact {
+        text-align: center;
+      }
+      #contact p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+      #contact .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      #contact .contact-link {
+        display: inline-block;
+        background: var(--primary-color);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+      #contact .contact-link:hover {
+        background: #0056b3;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        background: var(--text-color);
+        color: var(--surface-color);
+        margin-top: 2rem;
+      }
+
+      /* Responsive Design */
+      @media (min-width: 769px) {
+        #about .about-content {
+          flex-direction: row;
+          text-align: left;
+          justify-content: center;
+        }
+        #about .about-text {
+          text-align: left;
+          padding-left: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #home h1 {
+          font-size: 2.5rem;
+        }
+        #home .subtitle {
+          font-size: 1.25rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+
+        /* Timeline Responsive */
+        .timeline::after {
+          left: 31px;
+        }
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+        .timeline-item.left::before,
+        .timeline-item.right::before {
+          left: 60px;
+          border: medium solid var(--border-color);
+          border-width: 10px 10px 10px 0;
+          border-color: transparent var(--border-color) transparent transparent;
+        }
+        .timeline-item.left::after,
+        .timeline-item.right::after {
+          left: 21px;
+        }
+        .timeline-item.right {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://wa.me/919637898105" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <main>
+      <section id="home">
+        <img
+          src="https://lh3.googleusercontent.com/a/ACg8ocLnfCb3yL6RbbNu0o3hfYP5WxXSNu3S9S2A2DNaijyuZ7Td12O68Q=s360-c-no"
+          alt="Abhishek Kulkarni"
+          class="hero-image"
+        />
+        <div class="hero-content">
+          <h1>Hi, I'm Abhishek Kulkarni</h1>
+          <p class="subtitle">Full Stack Developer specializing in .NET, React, Node.js & Cloud Technologies</p>
+          <div class="btn-group">
+            <a href="#projects" class="cta-button">View My Work</a>
+            <a href="resume.docx" class="secondary-button" download> <i class="fas fa-download"></i> Download Resume </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                With 4+ years of hands-on experience, I am a dedicated Full Stack Developer proficient in a wide array of web technologies including
+                .NET, React.js, Node.js, and SQL Server, along with cloud platforms like Azure and AWS. I have a strong foundation in the complete
+                Project Development Life Cycle (SDLC) and Agile methodologies.
+              </p>
+              <p>
+                I hold a B.Tech in Computer Science and Engineering (2020) and am a Microsoft Certified Azure Fundamental. I also completed a 6-month
+                Full Stack Developer training from Edyoda Digital University, solidifying my skills in modern web development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Frontend</h3>
+              <ul>
+                <li>React JS</li>
+                <li>Angular 13+</li>
+                <li>TypeScript & JavaScript</li>
+                <li>Material UI & PrimeReact</li>
+                <li>Dev Express</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Backend</h3>
+              <ul>
+                <li>C#.Net / .NET Core</li>
+                <li>WEB API / MVC Core</li>
+                <li>Node JS & NestJS</li>
+                <li>Java & Springboot</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Databases</h3>
+              <ul>
+                <li>SQL Server 2012-2019</li>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>Stored Procedures</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Cloud, DevOps & Other</h3>
+              <ul>
+                <li>Azure & AWS</li>
+                <li>Docker & Jenkins</li>
+                <li>GraphQL & ElasticSearch</li>
+                <li>Kafka</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="container">
+          <h2 class="section-title">Career & Education</h2>
+
+          <div class="timeline">
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <h3>arieotech Solutions Pvt. Ltd.</h3>
+                <span class="date">Jul 2023 – Till Date</span>
+                <p class="item-title">Software Developer (Senior Associate Developer)</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <h3>Careator Technologies Pvt. Ltd.</h3>
+                <span class="date">Apr 2021 – Jul 2023</span>
+                <p class="item-title">Software Developer (Junior Associate Developer)</p>
+              </div>
+            </div>
+
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <h3>Full Stack Developer Training</h3>
+                <span class="date">Certification</span>
+                <p class="item-title">Completed 6 months training from Edyoda Digital University.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <h3>Shivaji University</h3>
+                <span class="date">Year of Passing: 2020</span>
+                <p class="item-title">B.Tech, Computer Science and Engineering.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="card-content">
+                <h3>Motor Training School Application</h3>
+                <p>Lead development from scratch for a comprehensive training school app, managing modules, enrollment, and admin tasks.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">.NET</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">PrimeReact</span>
+                <span class="tag">Azure</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="card-content">
+                <h3>iVote</h3>
+                <p>Led development of an innovative election campaign platform with QR voter search, real-time insights, and campaign management.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">.NET</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">React</span>
+                <span class="tag">PrimeReact</span>
+                <span class="tag">Azure</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="card-content">
+                <h3>E-Commerce Shopping App</h3>
+                <p>Built a mini e-commerce app with product listings, cart, and checkout. Involved in both frontend and backend design.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Redux</span>
+                <span class="tag">NestJS</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="card-content">
+                <h3>Student Management (CRUD)</h3>
+                <p>Full-stack role in building an app for student CRUD operations, including Excel uploads with a Bull.JS queue and Dockerization.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Angular</span>
+                <span class="tag">NestJS</span>
+                <span class="tag">GraphQL</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="card-content">
+                <h3>Billing Service / EGOV</h3>
+                <p>Developed a billing service using Java/Springboot for customers to pay property tax, water, and other bills.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Springboot</span>
+                <span class="tag">Kafka</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="card-content">
+                <h3>Innomatics</h3>
+                <p>Developed UI for a Fuel System project with Document and Team Management modules, focusing on UI optimization.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">.NET</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Dev Express</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <p>I'm currently open to new opportunities. Feel free to reach out if you'd like to discuss a project or just say hi!</p>
+          <div class="contact-links">
+            <a href="mailto:abhishekkulkanri1698@gmail.com" class="contact-link">Email Me</a>
+            <a href="https://www.linkedin.com/in/abhishek-kulkarni-5a31b3112/" target="_blank" class="contact-link">LinkedIn</a>
+            <a href="resume.docx" class="contact-link" download>Download Resume</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p style="color: wheat">© 2025 by Abhishek Kulkarni. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
